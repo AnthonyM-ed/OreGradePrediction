@@ -1,0 +1,171 @@
+/* Sidebar contenedor */
+.custom-sidebar {
+  color: white;
+  height: 100vh;
+  width: 265px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: width 0.3s ease-in-out;
+  padding-top: 1rem;
+  border: none;
+  outline: none;
+  z-index: 10;
+  /* z-index fijo para estar encima */
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to top, #000000, #0a1122);
+}
+
+/* Cuando el sidebar está colapsado */
+.custom-sidebar.collapsed {
+  width: 64px;
+}
+
+/* Contenedor principal del contenido */
+.main-content {
+  margin-left: 265px;
+  /* Ancho del sidebar expandido */
+  transition: margin-left 0.3s ease-in-out;
+  padding: 1rem;
+  /* Espaciado interior */
+}
+
+/* Ajuste cuando el sidebar está colapsado */
+.sidebar-collapsed .main-content {
+  margin-left: 64px;
+}
+
+.collapse-button-wrapper {
+  position: absolute;
+  top: 10px;
+  right: -15px;
+  z-index: 20;
+  /* encima del sidebar */
+}
+
+.button-collapsed {
+  background-color: #142138;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+}
+
+.custom-sidebar .collapsed-logo {
+  width: 60px;
+}
+
+.custom-sidebar .logo {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.custom-sidebar .logo img {
+  width: 150px;
+  height: auto;
+}
+
+.tables-list {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.table-list.open {
+  max-height: 12rem;
+  opacity: 1;
+  padding: 4px 10px;
+}
+
+.table-list.closed {
+  opacity: 0;
+}
+
+.sidebar-group {
+  margin-left: 0.5rem;
+}
+
+.sidebar-group-title {
+  font-weight: bold;
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-subgroup {
+  margin-left: 1rem;
+}
+
+.sidebar-subitem {
+  padding: 4px 10px;
+  color: white;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.sidebar-subitem:hover {
+  background-color: #1f2c4c;
+  font-size: 0.95rem;
+}
+
+.sidebar-subtables {
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+  color: #ddd;
+  padding: 4px 10px;
+
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Contenedor que maneja el desplazamiento */
+.menu-wrapper {
+  flex-grow: 1;
+  /* Esto permite que el contenido ocupe el espacio restante */
+  overflow-y: auto;
+  /* Permite el desplazamiento vertical */
+  padding-right: 11px;
+  /* Para evitar que el scroll se superponga al borde */
+  margin-top: 10px;
+  /* Ajuste para que no se superponga al logo */
+  padding-bottom: 10px;
+  /* Espaciado en la parte inferior */
+}
+
+/* Cuando el sidebar está colapsado */
+.custom-sidebar.collapsed {
+  width: 64px;
+}
+
+.user-button {
+  margin-top: auto;
+  padding: 10px 15px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.custom-sidebar.collapsed + .main-content {
+  margin-left: 64px; /* Ajuste para el contenido cuando el sidebar está colapsado */
+}

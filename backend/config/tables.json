@@ -1,0 +1,56 @@
+{
+  "validTables": ["tblAssay", "tbVCARptLeyes", "tblVWCHDatamineCollar"],
+  "sidebarStructure": [
+    {
+      "title": "HeatMap",
+      "subItems": [
+        {
+          "title": "Visualizar mapa",
+          "tables": ["HeatMap"]
+        }
+      ]
+    },
+    {
+      "title": "Channel",
+      "subItems": [
+        { "title": "Assay Report", "tables": ["tblAssay", "tblVWCHDatamineCollar"] },
+        { "title": "QAQC Report", "tables": ["tbVCARptLeyes"] },
+        { "title": "Control Sample Report", "tables": [] },
+        { "title": "Export Information", "tables": [] },
+        { "title": "Ore control samples", "tables": [] },
+        { "title": "Tools Utilities", "tables": [] }
+      ]
+    },
+    {
+      "title": "Cancha",
+      "subItems": [
+        { "title": "Assay Report", "tables": [] },
+        { "title": "Control sample report", "tables": [] },
+        { "title": "Export information", "tables": [] }
+      ]
+    },
+    {
+        "title": "Drilling",
+        "subItems": [
+          { "title": "Assay Report", "tables": [] },
+          { "title": "QAQC Report", "tables": [] },
+          { "title": "Control Sample Report", "tables": [] },
+          { "title": "Export Information", "tables": [] },
+          { "title": "View Drilling in 3D", "tables": [] },
+          { "title": "Tools Utilities", "tables": [] }
+        ]
+      },
+      {
+        "title": "Metallurgical Sample",
+        "subItems": [
+          { "title": "Assay Report", "tables": [] }
+        ]
+      },
+      {
+        "title": "Production data",
+        "subItems": [
+          { "title": "Assay Report", "tables": [] }
+        ]
+      }
+  ]
+}

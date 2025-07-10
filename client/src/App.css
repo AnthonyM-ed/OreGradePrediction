@@ -1,0 +1,70 @@
+#root {
+  margin: 0 auto;
+  padding-top: 2rem;
+  text-align: left;
+}
+
+.logo {
+  height: 6em;
+  padding: 1em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 16px;
+  text-align: left;
+}
+
+.styled-table th, .styled-table td {
+  border: 0.0001px solid #fdfdfd; /* Líneas finitas */
+  padding: 8px 15px;
+}
+
+.styled-table thead {
+  background-color: #f3f3f3; /* Fondo gris clarito */
+}
+
+.styled-table th {
+  color: #555; /* Texto gris más oscuro */
+  font-weight: 600;
+}
+
+.styled-table tr:nth-child(even) {
+  background-color: #f9f9f9; /* Rayadito alternado */
+}
+
+.styled-table tr:hover {
+  background-color: #f1f1f1; /* Efecto hover */
+}
