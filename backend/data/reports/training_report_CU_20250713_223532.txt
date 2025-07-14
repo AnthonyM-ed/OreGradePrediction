@@ -1,0 +1,45 @@
+COMPREHENSIVE TRAINING REPORT
+============================================================
+
+TRAINING CONFIGURATION:
+------------------------------
+Element: CU (Copper)
+Dataset: MAIN
+Sample limit: 1000
+Pipeline ID: 20250713_223515
+Training started: 2025-07-13 22:35:15
+Training duration: 16.92 seconds
+Total samples: 1000
+Features engineered: 59
+
+DATA SPLIT:
+---------------
+Training samples: 640 (64.0%)
+Validation samples: 160 (16.0%)
+Test samples: 200 (20.0%)
+
+MODEL PERFORMANCE:
+-------------------------
+Test Set (Final Evaluation):
+  R² Score: 0.8605
+  RMSE: 815.27 ppm
+  MAE: 87.44 ppm
+  MAPE: 2.12%
+  Bias: -75.52
+
+Training Set (Training Performance):
+  R² Score: 0.9999
+  RMSE: 12.17 ppm
+  MAE: 1.38 ppm
+
+Cross-Validation (5-fold):
+  CV R² Mean: 0.9624
+  CV R² Std: 0.0344
+  CV RMSE Mean: 291.09
+  CV RMSE Std: 120411.22
+
+MODEL ASSESSMENT: GOOD
+The model shows good predictive performance (R2 >= 0.85)
+
+Model files saved to: data\models\grade_model_20250713_223515.joblib
+Report generated: 2025-07-13T22:35:32.097748

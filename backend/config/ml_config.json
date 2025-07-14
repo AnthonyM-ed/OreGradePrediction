@@ -1,0 +1,41 @@
+{
+  "model_config": {
+    "algorithm": "xgboost",
+    "target_variable": "standardized_grade_ppm",
+    "test_size": 0.2,
+    "random_state": 42,
+    "cv_folds": 5
+  },
+  "xgboost_params": {
+    "objective": "reg:squarederror",
+    "max_depth": 6,
+    "learning_rate": 0.1,
+    "n_estimators": 100,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "random_state": 42
+  },
+  "feature_engineering": {
+    "spatial_features": true,
+    "geological_features": true,
+    "statistical_features": true,
+    "distance_features": true
+  },
+  "validation_metrics": {
+    "primary": ["r2", "mae", "rmse"],
+    "secondary": ["mape", "explained_variance"]
+  },
+  "data_sources": {
+    "main_view": "vw_HoleSamples_ElementGrades",
+    "elements": ["Cu", "Au", "Zn", "Pb", "Fe", "Ag"],
+    "datasets": ["Drilling_INF", "Drilling_BF", "Drilling_OP"],
+    "depth_columns": ["Depth_From", "Depth_To", "Interval_Length"],
+    "coordinate_columns": ["latitude", "longitude", "elevation"]
+  },
+  "preprocessing": {
+    "handle_missing": "median",
+    "outlier_detection": "iqr",
+    "scaling": "standard",
+    "feature_selection": "correlation"
+  }
+}

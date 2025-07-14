@@ -1,0 +1,24 @@
+MODEL EVALUATION REPORT
+==================================================
+Model: XGBoostOreGradePredictor_20250713_223515
+Evaluation Date: 2025-07-13T22:35:21.903987
+
+TEST SET METRICS:
+--------------------
+RMSE: 815.2719
+R² Score: 0.8605
+MAE: 87.4360
+MAPE: 2.12%
+Bias: -75.5173
+
+TRAINING SET METRICS:
+--------------------
+RMSE: 12.1723
+R² Score: 0.9999
+MAE: 1.3841
+
+CROSS-VALIDATION METRICS:
+-------------------------
+CV RMSE: 291.0927 ± 120411.2169
+CV R²: 0.9624 ± 0.0344
+CV MAE: 35.8987 ± 24.3003

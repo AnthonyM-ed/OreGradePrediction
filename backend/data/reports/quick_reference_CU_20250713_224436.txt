@@ -1,0 +1,35 @@
+QUICK REFERENCE CARD - CU MODEL
+=============================================
+
+Pipeline ID: 20250713_224414
+Trained: 2025-07-13 22:44:14
+Duration: 21.94 seconds
+Samples: 5000
+Features: 59
+Random seed: 42 (reproducible results)
+
+PERFORMANCE SUMMARY:
+--------------------
+Test R²: 0.9844 (98.4% accuracy)
+Test RMSE: 195.73 ppm
+Test MAE: 20.42 ppm
+
+HOW TO USE THIS MODEL:
+----------------------
+1. Load the model:
+   import joblib
+   model = joblib.load('data\models\grade_model_20250713_224414.joblib')
+
+2. Make predictions:
+   from ml_models.inference.predictor import SpatialOreGradePredictor
+   predictor = SpatialOreGradePredictor()
+   result = predictor.predict_at_location(
+       latitude=your_lat, longitude=your_lon,
+       depth_from=your_depth_from, depth_to=your_depth_to,
+       element='CU'
+   )
+
+3. Files location:
+   Model: data\models\grade_model_20250713_224414.joblib
+   Reports: data\reports
+   Evaluation: data\exports\reports
