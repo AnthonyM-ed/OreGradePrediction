@@ -32,7 +32,7 @@ const CustomSidebar = ({ sidebarStructure, onTableSelect, collapsed, onCollapseT
       {/* Logo */}
       <div className="logo">
         <img
-          src="/MB_logo.png"
+          src="/MB_logos.png"
           alt="Logo"
           className={collapsed ? "collapsed-logo" : ""}
         />

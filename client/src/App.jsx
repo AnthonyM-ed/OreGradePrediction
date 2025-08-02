@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Sidebar from './components/Sidebar/Sidebar';
 import HeatMapLibre from './components/HeatMapLibre/HeatMapLibre';
+import OreGradePrediction from './components/OreGradePrediction/OreGradePrediction';
 import IAChat from './components/IAChat/IAChat';
 import './App.css';
 
@@ -29,7 +30,7 @@ function App() {
 
   // Cargar datos de la tabla seleccionada
   useEffect(() => {
-  if (!selectedTable || selectedTable === 'HeatMap') return; // ← evita cargar datos si es HeatMap
+  if (!selectedTable || selectedTable === 'HeatMap' || selectedTable === 'OreGradePrediction') return; // ← evita cargar datos si es HeatMap o OreGradePrediction
 
   fetch(`http://127.0.0.1:8000/api/table/${selectedTable}`)
     .then((res) => res.json())
@@ -70,6 +71,10 @@ function App() {
           <>
             <h1 style={{ marginLeft: '16px' }}>Visualización de Mapa de Calor</h1>
             <HeatMapLibre />
+          </>
+        ) : selectedTable === "OreGradePrediction" ? (
+          <>
+            <OreGradePrediction />
           </>
         ) : (
           <>
@@ -114,7 +119,7 @@ function App() {
           </>
         )}
       </div>
-      <IAChat />
+      {/* <IAChat /> */}
     </div>
   );
 }

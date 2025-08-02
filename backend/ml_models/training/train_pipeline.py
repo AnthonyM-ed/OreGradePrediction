@@ -244,8 +244,9 @@ class TrainingPipeline:
                 fit=False
             )
             
-            # Store scaler for later use (if available)
-            scaler = getattr(self.preprocessor, 'scaler', None)
+            # Store scaler for later use (get from scalers dict)
+            scaling_method = self.config["preprocessing"].get("scaling", "standard")
+            scaler = self.preprocessor.scalers.get(scaling_method, None)
             
             # Store scaler for later use
             self.scaler = scaler
@@ -414,6 +415,7 @@ class TrainingPipeline:
                 "model_type": model.__class__.__name__,
                 "model_path": str(model_path),
                 "scaler_path": str(scaler_path),
+                "element": getattr(self, 'current_element', 'UNKNOWN'),  # Add element info
                 "config": self.config,
                 "evaluation_results": evaluation_results,
                 "feature_names": processed_data["X_train"].columns.tolist() if hasattr(processed_data["X_train"], 'columns') else None
@@ -452,6 +454,9 @@ class TrainingPipeline:
         """
         try:
             logger.info(f"Starting complete training pipeline for {element}")
+            
+            # Store current element for metadata
+            self.current_element = element
             
             # Step 1: Load data
             data = self.load_data(element, dataset, limit)

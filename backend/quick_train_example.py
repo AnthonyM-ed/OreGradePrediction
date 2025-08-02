@@ -24,7 +24,7 @@ from ml_models.training.train_pipeline import TrainingPipeline
 
 # Training Configuration
 ELEMENT = "CU"           # Element to train: "CU", "AU", "AG", "PB", "ZN", "MO", "FE", "S", "AS", "SB"
-SAMPLE_LIMIT = 5000      # Number of samples to use: 100, 1000, 5000, 10000, or None for all data
+SAMPLE_LIMIT = 6000      # Number of samples to use: 100, 1000, 5000, 10000, or None for all data
 DATASET = "MAIN"         # Dataset to use (usually "MAIN")
 
 # Available elements in your database:
@@ -138,7 +138,7 @@ def generate_comprehensive_reports(results, training_time, start_time):
             f.write(f"\nModel files saved to: {results.get('model_path', 'N/A')}\n")
             f.write(f"Report generated: {datetime.now().isoformat()}\n")
         
-        print(f"✅ Training report saved: {training_report_path}")
+        print(f" Training report saved: {training_report_path}")
         
         # 2. JSON SUMMARY REPORT
         json_report_path = reports_dir / f"training_summary_{ELEMENT}_{timestamp}.json"
@@ -179,7 +179,7 @@ def generate_comprehensive_reports(results, training_time, start_time):
         with open(json_report_path, 'w', encoding='utf-8') as f:
             json.dump(summary_data, f, indent=2)
         
-        print(f"✅ JSON summary saved: {json_report_path}")
+        print(f" JSON summary saved: {json_report_path}")
         
         # 3. COPY EVALUATION REPORT TO MAIN REPORTS FOLDER
         eval_report_source = exports_reports_dir / f"evaluation_report_{pipeline_id}.txt"
@@ -188,7 +188,7 @@ def generate_comprehensive_reports(results, training_time, start_time):
         if eval_report_source.exists():
             import shutil
             shutil.copy2(eval_report_source, eval_report_dest)
-            print(f"✅ Evaluation report copied: {eval_report_dest}")
+            print(f" Evaluation report copied: {eval_report_dest}")
         
         # 4. QUICK REFERENCE CARD
         quick_ref_path = reports_dir / f"quick_reference_{ELEMENT}_{timestamp}.txt"
@@ -227,16 +227,16 @@ def generate_comprehensive_reports(results, training_time, start_time):
             f.write(f"   Reports: {reports_dir}\n")
             f.write(f"   Evaluation: {exports_reports_dir}\n")
         
-        print(f"✅ Quick reference saved: {quick_ref_path}")
+        print(f" Quick reference saved: {quick_ref_path}")
         
         # 5. SUMMARY DISPLAY
-        print("\n📊 REPORTS GENERATED:")
+        print("\n REPORTS GENERATED:")
         print("-" * 25)
-        print(f"📄 Training Report: {training_report_path.name}")
-        print(f"📄 JSON Summary: {json_report_path.name}")
-        print(f"📄 Model Evaluation: {eval_report_dest.name}")
-        print(f"📄 Quick Reference: {quick_ref_path.name}")
-        print(f"\n📁 All reports saved to: {reports_dir}")
+        print(f" Training Report: {training_report_path.name}")
+        print(f" JSON Summary: {json_report_path.name}")
+        print(f" Model Evaluation: {eval_report_dest.name}")
+        print(f" Quick Reference: {quick_ref_path.name}")
+        print(f"\n All reports saved to: {reports_dir}")
         
         return {
             'training_report': str(training_report_path),
@@ -253,20 +253,20 @@ def generate_comprehensive_reports(results, training_time, start_time):
 def quick_train_model():
     """Train a configurable ore grade prediction model"""
     
-    print("🚀 CONFIGURABLE ORE GRADE MODEL TRAINING")
+    print(" CONFIGURABLE ORE GRADE MODEL TRAINING")
     print("="*50)
-    print(f"🎯 Element: {ELEMENT}")
-    print(f"📊 Sample limit: {SAMPLE_LIMIT if SAMPLE_LIMIT else 'ALL DATA (~58,694 samples)'}")
-    print(f"📁 Dataset: {DATASET}")
-    print(f"⏰ Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f" Element: {ELEMENT}")
+    print(f" Sample limit: {SAMPLE_LIMIT if SAMPLE_LIMIT else 'ALL DATA (~58,694 samples)'}")
+    print(f" Dataset: {DATASET}")
+    print(f" Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print()
     
     # Explain data sampling strategy
-    print("📋 DATA SAMPLING STRATEGY:")
+    print(" DATA SAMPLING STRATEGY:")
     print("-" * 30)
-    print("🔀 RANDOM SAMPLING: Yes, the data split is randomized")
-    print("🎲 Random seed: 42 (for reproducible results)")
-    print("📊 Split ratios:")
+    print(" RANDOM SAMPLING: Yes, the data split is randomized")
+    print(" Random seed: 42 (for reproducible results)")
+    print(" Split ratios:")
     print("   • Training: 64% (model learns from this)")
     print("   • Validation: 16% (used during training for tuning)")
     print("   • Test: 20% (completely hidden, used for final evaluation)")
@@ -300,14 +300,14 @@ def quick_train_model():
         test_metrics = eval_results.get('test_metrics', {})
         train_metrics = eval_results.get('train_metrics', {})
         
-        print("✅ TRAINING COMPLETED SUCCESSFULLY!")
+        print(" TRAINING COMPLETED SUCCESSFULLY!")
         print("="*50)
-        print(f"⏱️  Training time: {training_time:.2f} seconds")
-        print(f"📊 Total samples: {results.get('data_records', 'N/A')}")
-        print(f"🔧 Features: {results.get('features_count', 'N/A')}")
+        print(f" Training time: {training_time:.2f} seconds")
+        print(f" Total samples: {results.get('data_records', 'N/A')}")
+        print(f" Features: {results.get('features_count', 'N/A')}")
         print()
         
-        print("📈 MODEL PERFORMANCE:")
+        print(" MODEL PERFORMANCE:")
         print("-" * 25)
         print(f"Test R²:    {test_metrics.get('r2_score', 'N/A'):.4f}")
         print(f"Test RMSE:  {test_metrics.get('rmse', 'N/A'):.2f} ppm")
@@ -315,7 +315,7 @@ def quick_train_model():
         print(f"Test MAPE:  {test_metrics.get('mape', 'N/A'):.2f}%")
         print()
         
-        print("🏋️ TRAINING SET PERFORMANCE:")
+        print(" TRAINING SET PERFORMANCE:")
         print("-" * 30)
         print(f"Train R²:   {train_metrics.get('r2_score', 'N/A'):.4f}")
         print(f"Train RMSE: {train_metrics.get('rmse', 'N/A'):.2f} ppm")
@@ -325,16 +325,16 @@ def quick_train_model():
         # Model interpretation
         r2_score = test_metrics.get('r2_score', 0)
         if r2_score >= 0.95:
-            print("🎉 EXCELLENT: Model shows excellent predictive performance!")
+            print(" EXCELLENT: Model shows excellent predictive performance!")
         elif r2_score >= 0.85:
-            print("✅ GOOD: Model shows good predictive performance!")
+            print(" GOOD: Model shows good predictive performance!")
         elif r2_score >= 0.70:
-            print("⚠️  FAIR: Model shows fair performance, consider more data")
+            print("  FAIR: Model shows fair performance, consider more data")
         else:
-            print("❌ POOR: Model needs improvement, try more samples")
+            print(" POOR: Model needs improvement, try more samples")
         
         # Data split information
-        print("\n📊 DATA SPLIT DETAILS:")
+        print("\n DATA SPLIT DETAILS:")
         print("-" * 20)
         total_samples = results.get('data_records', SAMPLE_LIMIT or 58694)
         train_samples = int(total_samples * 0.64)  # 64% training
@@ -345,11 +345,11 @@ def quick_train_model():
         print(f"Validation: {val_samples} samples ({val_samples/total_samples*100:.1f}%)")
         print(f"Test:       {test_samples} samples ({test_samples/total_samples*100:.1f}%)")
         
-        print(f"\n💾 Model saved: {results.get('model_path', 'N/A')}")
-        print(f"📋 Pipeline ID: {results.get('pipeline_id', 'N/A')}")
+        print(f"\n Model saved: {results.get('model_path', 'N/A')}")
+        print(f" Pipeline ID: {results.get('pipeline_id', 'N/A')}")
         
         # Generate comprehensive reports
-        print("\n📄 GENERATING COMPREHENSIVE REPORTS...")
+        print("\n GENERATING COMPREHENSIVE REPORTS...")
         print("-" * 40)
         
         generate_comprehensive_reports(results, training_time, start_time)
@@ -361,7 +361,7 @@ def quick_train_model():
         raise
 
 if __name__ == "__main__":
-    print("🔧 CONFIGURATION:")
+    print(" CONFIGURATION:")
     print(f"   Element: {ELEMENT}")
     print(f"   Sample limit: {SAMPLE_LIMIT if SAMPLE_LIMIT else 'ALL DATA (~58,694)'}")
     print(f"   Dataset: {DATASET}")
@@ -369,13 +369,13 @@ if __name__ == "__main__":
     
     results = quick_train_model()
     
-    print(f"\n🎯 {ELEMENT} MODEL TRAINING COMPLETED!")
+    print(f"\n {ELEMENT} MODEL TRAINING COMPLETED!")
     print("You can now use this model for predictions.")
-    print(f"📁 Reports saved to: data/reports/")
-    print(f"💾 Model saved to: {results.get('model_path', 'N/A')}")
+    print(f" Reports saved to: data/reports/")
+    print(f" Model saved to: {results.get('model_path', 'N/A')}")
     
     # Show how to change configuration
-    print("\n🔧 TO CHANGE CONFIGURATION:")
+    print("\n TO CHANGE CONFIGURATION:")
     print("   Edit the variables at the top of this script:")
     print(f"   - ELEMENT = '{ELEMENT}'     # Change element")
     print(f"   - SAMPLE_LIMIT = {SAMPLE_LIMIT}    # Change sample count")

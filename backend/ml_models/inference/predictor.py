@@ -20,7 +20,7 @@ import json
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 
 from ml_models.data_processing.feature_engineering import GeologicalFeatureEngineer
-from ml_models.data_processing.preprocessing import DataPreprocessor
+from ml_models.data_processing.preprocessing import GeologicalDataPreprocessor
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -249,8 +249,12 @@ class SpatialOreGradePredictor:
             Feature DataFrame ready for prediction
         """
         try:
+            # Add a dummy target column for feature engineering
+            if 'standardized_grade_ppm' not in input_df.columns:
+                input_df['standardized_grade_ppm'] = 0.0  # Dummy value
+            
             # Use feature engineer to create features
-            features = self.feature_engineer.create_features(input_df)
+            features = self.feature_engineer.create_all_features(input_df, include_neighbors=False)
             
             # Remove target column if present
             if 'standardized_grade_ppm' in features.columns:

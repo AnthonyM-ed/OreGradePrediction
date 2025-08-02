@@ -1,6 +1,15 @@
 {
-  "validTables": ["tblAssay", "tbVCARptLeyes", "tblVWCHDatamineCollar"],
+  "validTables": ["tblAssay", "tbVCARptLeyes", "tblVWCHDatamineCollar", "OreGradePrediction"],
   "sidebarStructure": [
+    {
+      "title": "AI Prediction",
+      "subItems": [
+        {
+          "title": "Ore Grade Prediction",
+          "tables": ["OreGradePrediction"]
+        }
+      ]
+    },
     {
       "title": "HeatMap",
       "subItems": [
